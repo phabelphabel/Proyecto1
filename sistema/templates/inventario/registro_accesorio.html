@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Registro Carreras</title>
+{% endblock %}
+
+{% block content%}
+	{% include "includes/header.html" %}
+
+        <link href="{{STATIC_URL}}css/bootstrap.login.css" rel="stylesheet">
+        <link href="{{STATIC_URL}}css/boton.css" rel="stylesheet">
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div><h4>Ingresar Datos A Registrar </h4>
+            	<form action="" method="post">{% csrf_token %}
+            		<label> Grupo :</label>
+	                <select name="OS">
+					   <option value="1">Windows Vista</option> 
+					   <option value="2">Windows 7</option> 
+					   <option value="3">Windows XP</option>
+					   <option value="10">Fedora</option> 
+					   <option value="11">Debian</option> 
+					   <option value="12">Suse</option> 
+					</select>
+            		<label> Tipo :</label>
+            		<select name="OS">
+					   <option value="1">Baja</option> 
+					   <option value="2">Bueno</option> 
+					   <option value="3">Inactivo</option>
+					   <option value="10">Malo</option> 
+					   <option value="11">Regular</option>  
+					</select>
+		            <label> Estado :</label>
+             		<select name="OS">
+					   <option value="1">Baja</option> 
+					   <option value="2">Bueno</option> 
+					   <option value="3">Inactivo</option>
+					   <option value="10">Malo</option> 
+					   <option value="11">Regular</option>
+					</select><br>
+                    <label> Proveedor :</label>
+                    <input type="text" name="choicetext">
+					<input type="button" value="Buscar" onclick="window.open('/user/listar_responsable/','nuevaVentana','width=1000, height=500')" /><br>
+                    <label> Responsable :</label>
+                    <input type="text" name="choicetext">
+                    <input type="button" value="Buscar" onclick="window.open('/user/listar_responsable/','nuevaVentana','width=1000, height=500')" /><br>
+		            <label> Forma De Adquisicion :</label>
+             		<select name="OS">
+					   <option value="1">Compra</option> 
+					   <option value="2">Donacion</option> 
+					   <option value="3">Contrato</option>
+					   <option value="10">Malo</option>   
+					</select>
+                    <label> Fecha De Adquisicion :</label><input type="text" name="choicetext"><br>
+		            <label> Ubicacion :</label>
+             		<select name="OS">
+					   <option value="1">Direccion</option> 
+					   <option value="2">Secretaria</option> 
+					   <option value="3">Rectorado</option>
+					   <option value="10">Administracion</option>   
+					</select><br>
+
+					<input type="radio" name="sexo" id="tangible" value="tangible">
+					<label for="varon"> Tangible </label>
+					<input type="radio" name="sexo" id="depresiable" value="depresiable">
+					<label for="mujer"> Depresiable </label>
+					<br/> <br/>
+					<br><button type="submit" class="btn btn-primary">Aceptar</button>
+            	</form>
+            </div>
+
+
+<div id="botones"> 
+	<img class="anterior" src="{{STATIC_URL}}img/lavalamp.png" /> 
+	<img class="inicio" src="pixeltransparente.gif" /> 
+	<img class="siguiente" src="pixeltransparente.gif" /> 
+</div> 
+
+	{% include "includes/footer.html"%}
+{% endblock %}

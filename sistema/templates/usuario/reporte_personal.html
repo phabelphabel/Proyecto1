@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Reporte personal</title>
+{% endblock %}
+
+{% block content%}
+
+    <center><h1> Datos Personal Registrado </h1><br>
+
+    <table border='1px' width = '100%'> 
+        <thead>
+            <th> No. </th>   
+            <th> Nombres </th>
+            <th> A. Paterno </th>
+            <th> A. Materno </th>
+            <th> C. I. </th>
+            <th> Telefono </th>
+            <th> Correo Electronico </th>
+            <th> Cargo </th>
+        </thead>
+        {% for item in lis %}
+        <tbody>  
+            <tr>
+                <TD> {{item.id}} </TD>
+                <TD> {{item.nombres}} </TD>
+                <TD> {{item.apellido_paterno}} </TD>
+                <TD> {{item.apellido_materno}} </TD>
+                <TD> {{item.cedula_identidad}} </TD>
+                <TD> {{item.telefono}} </TD>
+                <TD> {{item.email}} </TD>
+                <TD> {{item.cargo}} </TD>
+            </tr>
+        </tbody> 
+        {% endfor %}
+    </table><br>
+    </center>
+    {% include "includes/footer.html"%}
+{% endblock %}

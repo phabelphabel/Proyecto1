@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Lista de Usuarios Registrados</title>
+{% endblock %}
+
+{% block content%}
+	{% include "includes/header.html" %}
+	
+        <ul class="menu">
+            <li class="child"><a  href= "/user/administrador/" > Inicio </a></li>
+            <li><a  href= ""> Administrar usuario</a>
+                <ul class="sub">
+                    <li><a href="/user/registro/">Registrar Usuario</a></li>
+                    <li><a href="/user/listar_usuario/">Buscar Usuario</a></li>
+                </ul>
+            </li>
+            <li><a  href= "."> Administrar personal</a>
+                <ul class="sub">
+                    <li><a href="/user/registro_personal/">Registrar Personal</a></li>
+                    <li><a href="/user/listar_personal/">Buscar Personal</a></li>
+                </ul>
+            </li>
+            <li><a href="">Realizar informe</a>
+                <ul class="sub">
+                    <li class="fold"><a href="/user/listar_usuario/">Listar Usuarios</a></li>
+                    <li class="fold"><a href="/user/listar_personal/">Listar Personal</a></li>
+                </ul>
+            </li>
+            <li class="childl"><a href="/logout/"> Cerrar Sesion </a></li>
+        </ul>
+
+        <div id="per">
+			<label for="kwd_search"> Buscar : </label> <input type="text" id="kwd_search" value=""/>
+        </div>
+				
+		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+						 <!--Header de la ventana-->
+					<div class="modal-header">
+						<h3 class="modal-title">Eliminar Usuario</h3>
+					</div>
+						<!--Contenido de la ventana-->
+					<div class="modal-body">
+			    		<p>¿Realmente desea eliminar al usuario <span id="modal_name"></span>?</p>
+					</div>	
+						<!--Footer de la -->
+					<div class="modal-footer">
+			        	<form method="post" id="frmEliminar">
+			           		{% csrf_token %}
+			            	<input type="hidden" id="modal_idPersonal" name="id_user">
+			            	<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+			            	<button type="submit" class="btn btn-danger">Eliminar</button>
+			            </form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="table">
+			<table id="my-table" border='0px'  class="table table-striped">
+				<thead>
+					<tr><th colspan="8"><h1 id='titulo1'> Usuarios Registrados </h1></th></tr>
+					<tr>
+						<th width="3%" class="active"> No. </th>
+						<th width="3%" class="active"> Rol </th>	
+						<th width="10%" class="active">	Usuario	</th>
+						<th width="10%" class="active">	Nombres	</th>
+						<th width="10%" class="active">	Apellidos </th>
+						<th width="15%" class="active">	Correo Electronico </th>
+						<th width="20%" class="active">	Fecha De Registro </th>
+					</tr>
+				</thead>
+				{% for item in lis %}	
+				<tbody>
+					<tr>
+						<td> {{item.id}} </td>
+						<td>
+							{% for Group in lis.all %}
+								{{Group.name}}
+							{% endfor %}
+						</td>
+						<td> {{item.username}} </td>
+						<td> {{item.first_name}} </td>
+						<td> {{item.last_name}} </td>
+						<td> {{item.email}} </td>
+						<td> {{item.date_joined}} </td>	
+						<!--<td>
+							<a class="btn btn-danger delete" href="/user/editar_usuario/{{item.id}}/"><i class="icon-pencil icon-white"></i>Modificar</a>
+						</td>-->	
+						<td>
+							<a href="#myModal" role="button" class="btn btn-danger delete" data-toggle="modal" id="{{item.id}}" data-name="{{item.username}}"><i class="icon-trash icon-white"></i>Eliminar</a>
+						</td>
+					</tr>
+
+				<tbody>
+				{% endfor %}
+			</table><br>
+					
+
+					<!--<table border='2px' width='80%' class="table table-hover">
+						<th width="3%" class="active">
+							No.
+						</th>	
+						<th width="3%" class="active">
+							Rol
+						</th>
+						<th width="10%" class="active">
+							Usuario
+						</th>
+						<th width="10%" class="active">
+							Nombres
+						</th>
+						<th width="10%" class="active">
+							Apellidos
+						</th>
+						<th width="15%" class="active">
+							Correo Electronico
+						</th>
+						<th width="20%" class="active">
+							Fecha De Registro
+						</th>
+
+                            {% for item in upp %}	
+						<tr>
+							<TD>
+								{{item.id}}
+							</TD>
+							<TD>
+								{{item.rol}}
+							</TD>
+							<TD>
+								{{item.user.username}}
+							</TD>
+							<TD>
+								{{item.user.first_name}}
+							</TD>
+							<TD>
+								{{item.user.last_name}}
+							</TD>
+							<TD>
+								{{item.user.email}}
+							</TD>
+							<TD>
+								{{item.user.date_joined}}
+							</TD>
+							{% if user.is_authenticated %}
+								<td>
+									<a class="btn" href="/user/editar_usuario/{{item.id}}/"><i class="icon-pencil"><i/>Modificar</a>
+								</td>	
+								<td>
+									<a href="#myModal" role="button" class="btn btn-danger delete" data-toggle="modal" id="{{item.id}}" data-name="{{item.username}}"><i class="icon-trash icon-white"></i>Eliminar</a>
+								</td>
+							{% endif %}
+						</tr>
+						{% endfor %}
+					</table>-->
+				<!--<button type="submit" class="btn btn-primary">Imprimir</button><br><br>-->
+		</div>
+		<br><br><br><br>
+
+	{% include "includes/footer.html"%}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Perfil Usuario</title>
+{% endblock %}
+
+{% block content%}
+
+	{% include "includes/header.html" %}
+
+		<div id="per">
+			<h3> Bienvenido : {{user.get_full_name}} </h3>
+							<h4>{{user.last_login}}</h4>
+					<!--<img src="/media/{{user.rol}}" alt="imagen">-->
+		</div>
+
+	{% include "includes/footer.html"%}
+{% endblock %}

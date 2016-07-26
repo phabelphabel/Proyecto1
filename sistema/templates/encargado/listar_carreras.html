@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Lista De Carreras</title>
+{% endblock %}
+
+{% block content%}
+	{% include "includes/header.html" %}
+
+	   	<ul class="menu">
+            <li class="child"><a  href= "/user/encargado/" > Inicio </a></li>
+        </ul>
+
+		<div id="per">
+			<label for="kwd_search"> Buscar : </label> <input type="text" id="kwd_search" value=""/>
+        </div>
+
+		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+						 <!--Header de la ventana-->
+					<div class="modal-header">
+						<h3 class="modal-title">Eliminar Carrera</h3>
+					</div>
+						<!--Contenido de la ventana-->
+					<div class="modal-body">
+			    		<p>¿Realmente desea eliminar la carrera <span id="modal_name"></span>?</p>
+					</div>	
+						<!--Footer de la -->
+					<div class="modal-footer">
+			        	<form method="post" id="frmEliminar">
+			           		{% csrf_token %}
+			            	<input type="hidden" id="modal_idPersonal" name="carrera_id">
+			            	<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+			            	<button type="submit" class="btn btn-danger">Eliminar</button>
+			            </form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="table">
+			<table border='0px'  class="table table-striped" id="my-table">	
+				<thead>
+					<tr><th colspan="8"><h1>Datos de Carreras</h1></th></tr>
+					<th width="3%" class="active"> No. </th>	
+					<th class="active"> Nombre Carrera </th>
+					<th class="active"> Responsable </th>
+					<th class="active"> Cargo </th>
+				</thead>
+				{% for item in liss %}	
+				<tbody>
+					<tr id="tr{{item.id}}">
+						<td>{{item.id}}</td>
+						<td>{{item.nombre_carrera}}</td>
+						<td>{{item.responsable}}</td>
+						<td>{{item.responsable.cargo}}</td>
+						<!--<td>{{item.date_joined}}</td>-->
+						<td><a class="btn btn-danger" href="/user/editar_carreras/{{item.id}}/"><i class="icon-pencil icon-white"></i>Modificar</a></td>
+						<td><a href="#myModal" role="button" class="btn btn-danger delete" data-toggle="modal" id="{{item.id}}" data-name="{{item.nombre_carrera}}"><i class="icon-trash icon-white"></i>Eliminar</a>
+						<!--<a href="/user/eliminar_personal/{{item.id}}" class="btn btn-danger delete" >Eliminar</a>-->
+						</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table><br>
+			<a href ="/user/crear_reporte_personal" type="submit" class="btn btn-primary">Exportar a PDF</a><br><br>
+		</div>	
+
+	{% include "includes/footer.html"%}
+{% endblock %}

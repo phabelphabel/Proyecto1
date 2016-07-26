@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Registro Carreras</title>
+{% endblock %}
+
+{% block content%}
+	{% include "includes/header.html" %}
+
+        <ul class="menu">
+            <li class="child"><a  href= "/user/encargado/" > Inicio </a></li>
+        </ul>
+
+<br>
+
+        <div class="form-login" id="centro">
+            <form class="form-signin" role="form" method="post" action=".">
+                {% csrf_token %}
+                <h3>Modificar Proveedor</h3><br>
+                <label> Proveedor de donacion :</label><br>
+                <th class="form-control">{{formu.nombre_proveedor}}</th><br>
+                <label> Direccion :</label><br>
+                <th class="form-control">{{formu.direccion}}</th><br>
+                <label> Telefono :</label><br>
+                <th class="form-control">{{formu.telefono}}</th><br><br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" >Modificar</button>
+            </form>
+        </div>
+
+	{% include "includes/footer.html"%}
+{% endblock %}

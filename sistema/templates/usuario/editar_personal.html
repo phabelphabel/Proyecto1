@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Modificar Personal</title>
+{% endblock %}
+
+{% block content%}
+	{% include "includes/header.html" %}
+
+		<ul class="menu">
+            <li class="child"><a  href= "/user/administrador/" > Inicio </a></li>
+            <li><a  href= ""> Administrar usuario</a>
+                <ul class="sub">
+                    <li><a href="/user/registro/">Registrar Usuario</a></li>
+                    <li><a href="/user/listar_usuario/">Buscar Usuario</a></li>
+                </ul>
+            </li>
+            <li><a  href= "."> Administrar personal</a>
+                <ul class="sub">
+                    <li><a href="/user/registro_personal/">Registrar Personal</a></li>
+                    <li><a href="/user/listar_personal/">Buscar Personal</a></li>
+                </ul>
+            </li>
+            <li><a href="">Realizar informe</a>
+                <ul class="sub">
+                    <li class="fold"><a href="/user/listar_usuario/">Listar Usuarios</a></li>
+                    <li class="fold"><a href="/user/listar_personal/">Listar Personal</a></li>
+                </ul>
+            </li>
+            <li class="childl"><a href="/logout/"> Cerrar Sesion </a></li>
+        </ul>
+		
+		<!--<<br<br>div class="container body">
+			<div class="row">
+				<div class="col-xs-12">
+					<form action="" method="post">
+						{% csrf_token%}
+						{{formulario.as_p}}
+						<button type="submit" class="btn btn-primary">Registar</button>
+					</form>
+				</div>
+			</div>
+		</div>-->
+
+<link href="{{STATIC_URL}}css/bootstrap.login.css" rel="stylesheet"><br><br><br><br>
+
+            <div class="form-login" id="centro"><h4>Ingrase Los Datos a Modificar</h4>
+				<form action="" method="post" class="usu" enctype="multipart/form-data">
+				  {% csrf_token%}
+				  <fieldset class="form-group">
+				    <label for="formGroupExampleInput">Nombre Completo : </label><br>
+            		<th class="form-control">{{formu.nombres}}</th><br>
+				  </fieldset>
+				  <fieldset class="form-group">
+				    <label for="formGroupExampleInput2">Apellido Paterno : </label><br>
+             		<th class="form-control">{{formu.apellido_paterno}}</th><br>
+				  </fieldset>
+				  <fieldset class="form-group">
+				    <label for="formGroupExampleInput2">Apellido Materno : </label><br>
+             		<th class="form-control">{{formu.apellido_materno}}</th><br>
+				  </fieldset>
+				  <fieldset class="form-group">
+				    <label for="formGroupExampleInput2">Cedula de Identidad : </label><br>
+            		<th class="form-control">{{formu.cedula_identidad}}</th><br>
+				  </fieldset>
+				  <fieldset class="form-group">
+				    <label for="formGroupExampleInput2">Cargo : </label><br>
+            		<th class="form-control">{{formu.cargo}}</th><br>
+				  </fieldset>
+				  <fieldset class="form-group">
+				    <label for="formGroupExampleInput2">Email : </label><br>
+            		<th class="form-control">{{formu.email}}</th><br>
+				  </fieldset>
+				  <fieldset class="form-group">
+				    <label for="formGroupExampleInput2">telefono : </label><br>
+            		<th class="form-control">{{formu.telefono}}</th><br>
+				  </fieldset>
+				  <button type="submit" class="btn btn-primary">Guardar</button>
+				  <button type="reset" class="btn btn-small btn-primary">Limpiar</button>
+				</form>
+			</div>
+
+	{% include "includes/footer.html"%}
+{% endblock %}

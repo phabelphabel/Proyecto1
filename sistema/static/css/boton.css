@@ -1,0 +1,23 @@
+#botones{ 
+display: block; 
+margin: 0px auto; 
+padding: 0px; 
+} 
+
+.anterior{ 
+width: /*pon el ancho del botón 'anterior'*/ ; 
+height: /*pon el alto del botón*/ ; 
+background: url('/user/listar_responsable/') no-repeat; 
+} 
+
+.inicio{ 
+width: /*pon el ancho del botón 'inicio'*/ ; 
+height: /*pon el alto del botón*/ ; 
+background: url( /*pon la URI del boton 'inicio' */ ) no-repeat; 
+} 
+
+.siguiente{ 
+width: /*pon el ancho del botón 'siguiente'*/ ; 
+height: /*pon el alto del botón*/ ; 
+background: url( /*pon la URI del boton 'siguiente' */ ) no-repeat; 
+}

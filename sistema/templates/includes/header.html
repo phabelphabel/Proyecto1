@@ -1,0 +1,24 @@
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-7">
+                <h1><a href="/"><span>Instituto Tecnico Industrial Superior Nuevo Amanecer </span></a></h1>
+            </div>
+        </div>
+    </div>
+</div><br>
+
+<div id="container">
+    {% if user.is_authenticated %}
+        <div id="per">
+            <h3> Bienvenido : {{user.get_full_name}} </h3><h4>{{user.last_login}}</h4>{{fecha|date:"Y-m-d h:i a"}}
+                    <!--<img src="/media/{{user.rol}}" alt="imagen">-->
+        </div>           
+    {% else %}
+        <ul class="menu">
+            <li class="fold"><a  href="/login/"> Login </a></li> 
+        </ul>
+    {% endif %}
+</div>
+
+{{fecha|date:"Y-m-d h:i a"}}

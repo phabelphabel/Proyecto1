@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Resultado de la busqueda</title>
+{% endblock %}
+
+{% block content%}
+
+	{% include "includes/header.html" %}
+
+		<div>
+			<ul>
+				{% for item in lista %}
+					<li>
+						{{item.nombres}}
+						{{item.apellido_paterno}}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+	{% include "includes/footer.html"%}
+{% endblock %}

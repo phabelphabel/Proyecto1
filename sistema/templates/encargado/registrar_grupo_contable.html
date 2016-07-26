@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Perfil Usuario</title>
+{% endblock %}
+
+{% block content%}
+
+    {% include "includes/header.html" %}
+
+        <ul class="menu">
+            <li class="child"><a  href= "/user/encargado/" > Inicio </a></li>
+        </ul>
+<br><br><br><br><br><br>
+        <div class="caja">
+
+            <form  action="" method="post">
+                <h2>Registrar Grupo Contable</h2>
+                {% csrf_token %}
+                {{ formulario.as_p }}
+                <select name = 'dropdownl'>
+                    {% for lis in item %}
+                        <option value = '{{}}'>{{}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Registar</button>
+
+            </form>
+
+        </div>
+
+    {% include "includes/footer.html"%}
+{% endblock %}

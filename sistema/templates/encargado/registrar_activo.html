@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Perfil Usuario</title>
+{% endblock %}
+
+{% block content%}
+
+    {% include "includes/header.html" %}
+
+    <script type="text/javascript" src="qrcode.js"></script>
+
+        <ul class="menu">
+            <li class="child"><a  href= "/user/encargado/" > Inicio </a></li>
+        </ul>
+<br><br><br><br><br><br>
+        <div id="carrito_content">
+            <h4>Registrar grupo contable</h4>
+            <a href="/user/registrar_grupo_contable/">Registrar</a>
+        </div>
+
+<br><br><br><br><br><br>
+
+        <div class="caja">
+
+            <form  action="" method="post">
+                <h2>Registrar activo</h2>
+                {% csrf_token %}
+                {{ formulario.as_p }}
+                <button type="submit" class="btn btn-primary">Registar</button>
+
+            </form>
+
+        </div>
+<br><br>
+<img src="{{ Activo.qrcode.url }}" alt="Activo QR code" />
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<!--    <script>
+    $( "#fcarrito" ).submit(function( event ) {
+        //Aqui enviamos el formulario mediante ajax
+        var direccion=$("#fcarrito").attr('action');
+        $.ajax({
+            type:'POST',
+            url:direccion,
+            data:$("#fcarrito").serialize(),
+            success: ActualizarCarrito,
+            error:errores
+        });
+        event.preventDefault()
+        $('.reveal-modal').trigger('reveal:close');
+    });
+    function ActualizarCarrito(data){
+        $('#carrito').text(data);
+    }
+    function errores(){
+        alert("Error en el servidor");
+    }
+</script>
+<form action="/productos/carrito/add/{{ pro.id }}/" method="post" id="fcarrito">
+    {% csrf_token %}
+    <h3>Nombre: {{ pro.nombre }}</h3>
+    <p><img src="/media/{{ pro.imagen }}"></p>
+    {{ fcarr }}
+    <input type="submit" value="Seleccionar personal">
+</form>-->
+
+    {% include "includes/footer.html"%}
+{% endblock %}

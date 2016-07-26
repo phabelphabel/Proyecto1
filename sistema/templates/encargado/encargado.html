@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Perfil Usuario</title>
+{% endblock %}
+
+{% block content%}
+
+	{% include "includes/header.html" %}
+
+                <ul class="menu">
+                    <li class="child"><a  href= "/user/encargado/" > Inicio </a></li>
+                    <li><a  href= ""> Adm. Carreras</a>
+                        <ul class="sub">
+                            <li><a href="/user/registro_carreras/">Registrar carrera</a></li>
+                            <li><a href="/user/listar_carreras/">Listar carreras</a></li>
+                            <li><a href="/user/listar_carreras/">Buscar carreras</a></li>
+                        </ul>
+                    </li>
+                    <li><a  href= ""> Administrar Proveedor</a>
+                        <ul class="sub">
+                            <li><a href="/user/registro_proveedor/">Registrar Proveedor</a></li>
+                            <li><a href="/user/listar_proveedor/">Listar proveedor</a></li>
+                            <li><a href="/user/listar_proveedor/">Buscar proveedor</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Gestionar Activos</a>
+                        <ul class="sub">
+                            <li><a href="/user/registrar_activo/">Registrar Activo</a></li>
+                            <li><a href="/user/carrera/">Transferir Activo</a></li>
+                            <li><a href="/user/carrera/">Codificar Activo</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Control Activos</a>
+                        <ul class="sub">
+                            <li><a href="/user/responsable/">Depreciar</a></li>
+                            <li><a href="/user/carrera/">Revalorizar</a></li>
+                            <li><a href="/user/carrera/">actualizar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Verificar cotizacion Ufv</a>
+                        <ul class="sub">
+                            <li><a href="/user/responsable/">Registrar Ufv</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Realizar inventario</a>
+                        <ul class="sub">
+                            <li><a href="/user/responsable/">Unidad de trabajo</a></li>
+                            <li><a href="/user/carrera/">Activo asignado</a></li>
+                            <li><a href="/user/carrera/">Registro codigo QR</a></li>
+                        </ul>
+                    </li>
+                    <!---<li><a href="">Registrar Carreras</a>
+                        <ul class="sub">
+                            <li><a href="/user/responsable/">Registrar Responsable</a></li>
+                            <li><a href="/user/carrera/">Registrar Carreras</a></li>
+                        </ul>
+                    </li>-->
+                    <li><a href="">Realizar Reportes</a>
+                        <ul class="sub">
+                            <li><a href="/user/listar_responsable/">Relorte activos</a></li>
+                            <li class="fold"><a href="/user/listar_carrera/">Reporte activo asignado</a></li>
+                            <li><a href="/user/listar_proveedor/">Reporte activo actualizados</a></li>
+                            <li><a href="/user/listar_proveedor/">Reporte transferencias</a></li>
+                            <li><a href="/user/listar_proveedor/">Reporte grupos contables</a></li>
+                            <li><a href="/user/listar_proveedor/">Reporte devolucion activos</a></li>
+                            <li><a href="/user/listar_proveedor/">Reporte baja activo</a></li>
+                            <li><a href="/user/listar_proveedor/">Reporte unidad trabajo</a></li>
+                        </ul>
+                    </li>
+                    <!--<li><a href="">Registrar Accesorio</a>
+                        <ul class="sub">
+                            <li> <a href="/user/accesorio/">Registrar</a></li>
+                        </ul>
+                        <ul class="sub">
+                            <li> <a href="/user/accesorio/">Registrar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Inventario</a></li>
+                    <li><a href="">Reportes</a>
+                        <ul class="sub">
+                            <li><a href="/user/ver_fusuario/">Reporte de inventario</a></li>
+                            <li><a href="/user/registro/">Reporte de activos</a></li>
+                            <li><a href="/user/ver_fusuario/">Reporte de activos por ubicacion</a></li>
+                            <li><a href="/user/ver_fusuario/">Reporte de activos por unidad</a></li>
+                            <li><a href="/user/ver_fusuario/">Reporte de activos por responsable</a></li>
+                            <li><a href="/user/ver_fusuario/">Reporte de activos por inventariador</a></li>
+                        </ul>       
+                    </li>-->
+                    <li class="childl"><a href="/logout/"> Cerrar Sesion </a></li>
+                </ul>
+	{% include "includes/footer.html"%}
+{% endblock %}

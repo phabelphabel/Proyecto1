@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Modificar Personal</title>
+{% endblock %}
+
+{% block content%}
+	{% include "includes/header.html" %}
+
+		<ul class="menu">
+            <li class="child"><a  href= "/user/encargado/" > Inicio </a></li>
+        </ul>
+
+<br>
+
+        <div class="form-login" id="centro">
+            <form class="form-signin" role="form" method="post" action=".">
+                {% csrf_token %}
+                <h2 class="form-signin-heading">Modificar Datos</h2>
+                <label> Nombre De Carrera :</label><br>
+                <th class="form-control">{{formu.nombre_carrera}}</th><br>
+                <label> Responsable :</label><br>
+                <th class="form-control">{{formu.responsable}}</th><br><br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" >Modificar</button>
+            </form>
+        </div>
+
+	{% include "includes/footer.html"%}
+{% endblock %}
+

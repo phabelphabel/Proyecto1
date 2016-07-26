@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Login</title>
+{% endblock %}
+
+{% block content%}
+	{% include "includes/header.html" %}
+
+<link href="{{STATIC_URL}}css/bootstrap.login.css" rel="stylesheet">
+<br><br>
+
+<div class="container body">
+    <div class="row">
+        <div class="col-md-offset-3 col-xd-2">
+        	<h1 id='titulo1'>SISTEMA DE AUTENTIFICACION</h1><br>
+            <div class="form-login"><h4>INGRESE SUS DATOS</h4>
+            	<form action="" method="post">{% csrf_token %} {{mensaje}} <br><br>
+            		<label> Usuario :</label><br>
+            		<th class="form-control">{{formulario.username}}</th><br>
+            		<label> Contrasena :</label>
+            		<input type="password" name="password" class="form-control" placeholder="enter password"></br>
+					<button type="submit" class="btn btn-primary">Ingresar</button><br><br>
+                    <a href="/user/registro/">Registrar usuario</a>
+            	</form>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <!--<div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="#" class="list-group-item">Editar email</a>
+                <a href="#" class="list-group-item">Editar contraseña</a>
+                <a href="#" class="list-group-item">Editar foto</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            {% block accounts_content %}{% endblock accounts_content %}
+        </div>
+    </div>-->
+<!--<div class="container body">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="form-login">
+				<form action="" method="post">
+					{% csrf_token%}
+					{{formulario.as_table}}
+					<button type="submit" class="btn btn-primary">Ingresar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>-->
+
+	{% include "includes/footer.html"%}
+{% endblock %}

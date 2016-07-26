@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Registro Carreras</title>
+{% endblock %}
+
+{% block content%}
+	{% include "includes/header.html" %}
+
+        <ul class="menu">
+            <li class="child"><a  href= "/user/encargado/" > Inicio </a></li>
+        </ul>
+
+        <div class="row">
+            <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <form class="form-signin" role="form" method="post" action=".">
+                        {% csrf_token %}
+                        <h2>Registrar Carrera</h2>
+                        {{formulario.as_p}}
+                        <button type="submit" class="btn btn-primary">Registar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+	{% include "includes/footer.html"%}
+{% endblock %}

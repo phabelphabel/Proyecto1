@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Activar Cuenta</title>
+{% endblock %}
+
+{% block content%}
+	{% include "includes/header.html" %}
+	<br><br>
+		<div class="container body">
+				<div class="col-xs-12">
+					<form action="" method="post" enctype="multipart/form-data">
+						{% csrf_token%}
+						{{formulario.as_p}}
+						<button type="submit" class="btn btn-primary">Activar Cuenta</button>
+					</form>
+				</div>
+		</div>
+
+	{% include "includes/footer.html"%}
+{% endblock %}
